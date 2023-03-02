@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all connections
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new connection
+    </h2>
+
+    <form action="/insert_connection" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="comment_id_box">
+          Comment
+        </label>
+
+        <input type="text" id="comment_id_box" name="query_comment_id">
+      </div>
+
+      <div>
+        <label for="photo_id_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_id_box" name="query_photo_id">
+      </div>
+
+      <div>
+        <label for="company_id_box">
+          Company
+        </label>
+
+        <input type="text" id="company_id_box" name="query_company_id">
+      </div>
+
+      <div>
+        <label for="connection_of_connections_id_box">
+          Connection of connections
+        </label>
+
+        <input type="text" id="connection_of_connections_id_box" name="query_connection_of_connections_id">
+      </div>
+
+      <button>
+        Create connection
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Comment
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Company
+        </th>
+
+        <th>
+          Connection of connections
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_connections.each do |a_connection| %>
+      <tr>
+        <td>
+          <%= a_connection.id %>
+        </td>
+
+        <td>
+          <%= a_connection.user_id %>
+        </td>
+
+        <td>
+          <%= a_connection.comment_id %>
+        </td>
+
+        <td>
+          <%= a_connection.photo_id %>
+        </td>
+
+        <td>
+          <%= a_connection.company_id %>
+        </td>
+
+        <td>
+          <%= a_connection.connection_of_connections_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_connection.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_connection.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/connections/<%= a_connection.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

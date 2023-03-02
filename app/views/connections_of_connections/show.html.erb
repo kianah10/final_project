@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Connections of connection #<%= @the_connections_of_connection.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/connections_of_connections">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_connections_of_connection/<%= @the_connections_of_connection.id %>">
+          Delete connections of connection
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Connection
+      </dt>
+      <dd>
+        <%= @the_connections_of_connection.connection_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_connections_of_connection.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_connections_of_connection.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit connections of connection
+    </h2>
+
+    <form action="/modify_connections_of_connection/<%= @the_connections_of_connection.id %>"  method="post" >
+      <div>
+        <label for="connection_id_box">
+          Connection
+        </label>
+
+        <input type="text" id="connection_id_box" name="query_connection_id" value="<%= @the_connections_of_connection.connection_id %>">
+      </div>
+
+      <button>
+        Update connections of connection
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
